@@ -13,11 +13,13 @@ def train(model, dataloader, criterion, optimizer, num_epochs, checkpoint_dir):
     model.train()
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     model = model.to(device)
-    accuracy = Accuracy(task='binary').to(device)
+    #accuracy = Accuracy(task='binary').to(device)
+    correct = 0
+    total = 0
 
     for epoch in tqdm(range(num_epochs)):
         training_loss = 0.0
-        accuracy.reset()
+        #accuracy.reset()
         
         for batch_idx, (inputs, labels) in enumerate(tqdm(dataloader)):
                 labels = labels.float().to(device)
@@ -32,15 +34,18 @@ def train(model, dataloader, criterion, optimizer, num_epochs, checkpoint_dir):
 
                  # Update accuracy metric
                 predicted = (outputs.view(-1) > 0.5).float()
-                accuracy.update(predicted, labels)
+                #accuracy.update(predicted, labels)
+                total += labels.size(0)
+                correct += (predicted == labels).sum().item()
 
                 if batch_idx % 50 == 0:
                     print(f'Epoch [{epoch+1}/{num_epochs}], Batch [{batch_idx+1}/{len(dataloader)}], Loss: {loss.item():.4f}')
                 torch.cuda.empty_cache()  # Clear CUDA cache to prevent memory leaks
 
         epoch_loss = training_loss / len(dataloader)
-        epoch_accuracy = accuracy.compute().item() * 100
-        print(f'Epoch [{epoch+1}/{num_epochs}], Loss: {epoch_loss:.4f}, Accuracy: {epoch_accuracy:.2f}%')
+        # epoch_accuracy = accuracy.compute().item() * 100
+        accuracy = 100 * correct / total
+        print(f'Epoch [{epoch+1}/{num_epochs}], Loss: {epoch_loss:.4f}, Accuracy: {accuracy:.2f}%')
         
         # Save checkpoint
         if (epoch + 1) % 5 == 0:  # Save every 5 epochs

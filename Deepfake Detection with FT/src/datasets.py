@@ -7,6 +7,7 @@ from tqdm import tqdm
 import multiprocessing
 from PIL import Image
 from skimage.io import imread
+from sklearn.model_selection import train_test_split
 
 class Dataset(TorchDataset):
     def __init__(self, image_paths, labels, transform=None):
@@ -45,7 +46,10 @@ def get_data_loaders(train_dir, test_dir, batch_size, transform=None):
     test_image_paths, test_labels = get_image_paths_and_labels(test_dir)
 
     train_dataset = Dataset(train_image_paths, train_labels, transform)
+    print(f"Train dataset: {train_dataset}")
+    print(f"Train dataset size: {len(train_dataset)}")
     test_dataset = Dataset(test_image_paths, test_labels, transform)
+    print(f"Test dataset size: {len(test_dataset)}")
 
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
     test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False)

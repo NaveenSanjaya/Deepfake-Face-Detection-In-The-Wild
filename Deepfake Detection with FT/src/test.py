@@ -13,6 +13,7 @@ def load_model(model, checkpoint_path):
     return model
 
 def evaluate(model, valid_loader):
+    model.eval()
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     correct = 0
     total = 0
