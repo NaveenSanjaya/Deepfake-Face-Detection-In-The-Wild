@@ -1,0 +1,42 @@
+model_v0 - Discarded ( real and fake numbers got switched)
+model_v0-copy - To train with high value for real and low for fake
+model_v1 - Improving Correct model_v0
+           only changed mean,std and correct real and fake
+model_v2 - Contains changes that should be made to model_v1 from model_v0
+            Have to apply regularixation yet to model_v1
+
+Change
+the transform mean and std
+then the training and testing optimizer
+model
+
+
+deepfake_detect_model_20250110_201404.pth - Cumulative training accuracy: 0.94145
+Train loss: 0.1453 | Test loss: 0.6857, Test acc: 0.7415
+
+model_v0-copy
+deepfake_detect_model_20250111_100940.pth
+Cumulative training accuracy: 0.8749125
+Test loss: 0.4887, Test acc: 0.7601
+
+Model saved to deepfake_detect_model_20250111_150451.pth
+Train loss: 0.2550 | Train acc: 89.2950% | Test loss: 0.4713 | Test acc: 77.8646%
+
+Model saved to deepfake_detect_model_20250111_163248.pth
+Train loss: 0.4515 | Train acc: 80.4438% | Test loss: 0.5210 | Test acc: 73.1771%
+
+Model saved to deepfake_detect_model_20250111_160244.pth
+Train loss: 0.4524 | Train acc: 80.4525% | Test loss: 0.5227 | Test acc: 73.1771%
+
+Model saved to deepfake_detect_model_20250111_180533.pth
+Train loss: 0.2548 | Train acc: 89.4450% | Test loss: 0.4493 | Test acc: 78.8411%
+
+model_v1
+
+Model saved to deepfake_detect_model_20250111_132806.pth
+Train loss: 0.4524 | Train acc: 80.4525% | Test loss: 0.5227 | Test acc: 73.1771%
+
+Model saved to deepfake_detect_model_20250111_140725.pth
+Train loss: 0.4515 | Train acc: 80.4438% | Test loss: 0.5210 | Test acc: 73.1771%
+
+Search for terms transform real fake train_data test_data
