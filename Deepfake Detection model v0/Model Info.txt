@@ -39,4 +39,31 @@ Train loss: 0.4524 | Train acc: 80.4525% | Test loss: 0.5227 | Test acc: 73.1771
 Model saved to deepfake_detect_model_20250111_140725.pth
 Train loss: 0.4515 | Train acc: 80.4438% | Test loss: 0.5210 | Test acc: 73.1771%
 
+model_sv1
+Model saved to deepfake_detect_model_20250111_204752.pth
+Train loss: 0.2546 | Train acc: 89.3850% | Test loss: 0.4515 | Test acc: 78.9062%
+
+model_sv3 - added lr sheduler/ computed mean and std locally/ create training dataloader by selecting randomly
+Model saved to deepfake_detect_model_20250111_233816.pth
+Train loss: 0.2641 | Train acc: 88.9080% | Test loss: 0.4581 | Test acc: 78.4831%
+
+Model saved to deepfake_detect_model_20250112_080452.pth
+Train loss: 0.2646 | Train acc: 88.9640% | Test loss: 0.4496 | Test acc: 78.8411%
+
+Model saved to deepfake_detect_model_20250112_122939.pth
+Train loss: 0.1950 | Train acc: 92.1610% | Test loss: 0.5341 | Test acc: 76.4974%
+
+Model saved to deepfake_detect_model_20250112_140005.pth
+Train loss: 0.2062 | Train acc: 91.6880% | Test loss: 0.5507 | Test acc: 75.3255%
+
+Model saved to deepfake_detect_model_20250112_164232.pth
+Train loss: 0.2054 | Train acc: 91.7030% | Test loss: 0.5485 | Test acc: 75.7812%
+
+model_sv4 - This is for Image Data Augmentation and Normalization
+Model saved to deepfake_detect_model_20250112_202517.pth
+Train loss: 0.2967 | Train acc: 87.6020% | Test loss: 0.5296 | Test acc: 76.6927%
+
+model_sv5 - This uses newer model without all layers unfreezed at once and with weights
+
 Search for terms transform real fake train_data test_data
+
